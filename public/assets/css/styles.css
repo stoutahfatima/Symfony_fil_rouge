@@ -1,0 +1,173 @@
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-image: url(/assets/src/background_village.png);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h2{
+    color:rgb(65, 56, 46);
+}
+
+.image_accueil{
+    width:100%;
+}
+
+
+.bg-center {
+    background-color:rgb(255, 255, 255);
+}
+
+#navbar1{
+    font-size:2em;
+    background-color: rgb(38, 105, 66);
+}
+
+#navbar1 .nav-link{
+    color: white;
+}
+.prenom{
+    font-size: 75%;
+    width: auto;
+    color:white;
+}
+
+
+/* cadre utilisée pour les liens de la navbar1 lorsque la souris passe dessus */
+#navbar1 .navbar-nav > li > a:hover,
+#navbar1 .navbar-nav > li > a:focus {
+    border:1px solid white;
+}
+
+
+#navbar2{
+    font-size: 1.5em;
+    background-color: rgb(45, 192, 106);
+}
+
+/* Couleur utilisée pour les liens de la navbar2 lorsque la souris passe dessus */
+#navbar2 .navbar-nav > li > a:hover,
+#navbar2 .navbar-nav > li > a:focus {
+    color: white;
+}
+
+.logo {
+    z-index: 1;
+    position: absolute;
+    float: left;
+    max-width: 289px;
+    min-width: 18%;
+    margin: 0%;
+}
+
+.divLogo{
+    position: absolute;
+    z-index: 1;
+    margin-left: -12px;
+}
+
+.breadcrumb {
+    background-color: unset  !important;
+    font-size:1.5em
+}
+
+.breadcrumb-item.active,.breadcrumb-item+.breadcrumb-item::before{
+    color:rgb(46, 50, 65);
+}
+
+#arianne{
+	color: #0d6efd;
+	text-decoration:underline!important;
+}
+a:link 
+{ 
+text-decoration:none; 
+} 
+a
+{ 
+color:rgb(46, 50, 65);
+} 
+.liens{
+	text-align:center;
+}
+
+.carte{
+	max-width: 60%;
+}
+.dispo{
+	position: absolute;
+	bottom:5%;
+}
+
+.quantite input
+{
+	width: 75% !important;
+	border-radius:50px;
+	text-align:center;
+    margin-bottom: 40%;
+
+}
+.quantite{
+	display:inline-block ;
+	width:25%;
+}
+.panier{
+	display:inline-block ;
+	width:75%;
+    padding-top:5%;
+} 
+
+.ajouterpanier{
+    display:inline-block;
+    margin-top: auto;
+}
+
+.total{
+    font-size:1.25rem;
+    color:rgb(207, 57, 57);
+}
+
+.photoproduit{
+    width:4.5rem
+}
+
+@media screen and (max-width: 991px)  {
+    .logo {
+        display:none;
+    }
+    #navbar1.nav-item{
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .sousrubrique {
+        font-size: 1rem;
+    }
+
+}
+@media screen and (max-width: 1400px){
+    a {
+        font-size: 1.2rem;
+    }
+    .rechercheinput {
+        width: 150px!important;
+        margin-left: auto;
+        margin-right:0;
+    }
+    .paniernav{
+        margin-left: auto;
+    }
+    .accueil{
+        margin-left: auto;
+    }
+}
