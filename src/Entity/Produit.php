@@ -6,6 +6,7 @@ use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ProduitRepository::class)
@@ -16,6 +17,7 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("read:produit")
      */
     private $id;
 
@@ -26,6 +28,7 @@ class Produit
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("read:produit")
      */
     private $nom;
 
@@ -36,17 +39,20 @@ class Produit
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *  @Groups("read:produit")
      */
     private $stock;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
+     *  @Groups("read:produit")
      */
     private $prixht;
 
     /**
      * @ORM\ManyToOne(targetEntity=SousCategorie::class, inversedBy="produits")
      * @ORM\JoinColumn(nullable=false)
+     *  @Groups("read:produit")
      */
     private $souscategorie;
 

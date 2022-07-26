@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Repository\ClientRepository;
 use App\Repository\ProduitRepository;
-use App\Repository\RubriqueRepository;
-use App\Repository\SousRubriqueRepository;
+use App\Repository\CategorieRepository;
+use App\Repository\SousCategorieRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;

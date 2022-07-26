@@ -31,7 +31,7 @@ label{
 					<li class="breadcrumb-item active" aria-current="page">
 						<a href="{{ path('souscategorie',{id:produit|first.souscategorie.categorie.id})}}">{{produit|first.souscategorie.categorie.nom}}</a>
 					</li>
-					<li class="breadcrumb-item active" aria-current="page">{{produit|first.sousrubrique.nom}}
+					<li class="breadcrumb-item active" aria-current="page">{{produit|first.souscategorie.nom}}
 					</li>
 				</ol>
 			</nav>

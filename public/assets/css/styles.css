@@ -24,12 +24,12 @@ h2{
 
 
 .bg-center {
-    background-color:rgb(255, 255, 255);
+    background-color:rgb(247, 252, 247);
 }
 
 #navbar1{
-    font-size:2em;
-    background-color: rgb(38, 105, 66);
+    font-size:1.5em;
+    background-color: rgb(15, 16, 17);
 }
 
 #navbar1 .nav-link{
@@ -50,8 +50,8 @@ h2{
 
 
 #navbar2{
-    font-size: 1.5em;
-    background-color: rgb(45, 192, 106);
+    font-size: 1em;
+    background-color: rgb(85, 146, 216);
 }
 
 /* Couleur utilisée pour les liens de la navbar2 lorsque la souris passe dessus */
@@ -65,7 +65,7 @@ h2{
     position: absolute;
     float: left;
     max-width: 289px;
-    min-width: 18%;
+    min-width: 14%;
     margin: 0%;
 }
 
@@ -81,11 +81,11 @@ h2{
 }
 
 .breadcrumb-item.active,.breadcrumb-item+.breadcrumb-item::before{
-    color:rgb(46, 50, 65);
+    color:rgb(21, 22, 27);
 }
 
 #arianne{
-	color: #0d6efd;
+	color: rgb(70, 11, 235)
 	text-decoration:underline!important;
 }
 a:link 
@@ -94,7 +94,7 @@ text-decoration:none;
 } 
 a
 { 
-color:rgb(46, 50, 65);
+color:rgb(16, 23, 46);
 } 
 .liens{
 	text-align:center;
@@ -150,7 +150,7 @@ color:rgb(46, 50, 65);
 }
 
 @media screen and (max-width: 1200px) {
-    .sousrubrique {
+    .souscategorie {
         font-size: 1rem;
     }
 
