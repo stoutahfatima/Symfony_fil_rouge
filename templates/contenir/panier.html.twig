@@ -30,7 +30,7 @@ input{
                 <tbody>
                 {% for item in items %}
                         <tr>
-                            <td><a href="{{path('details',{id:item.produit.id})}}"><img class="photoproduit" src="/assets/src/{{item.produit.photo}}"></a></td>
+                            <td><a href="{{path('details',{id:item.produit.id})}}"><img class="photoproduit" src="/assets/src/ {{item.produit.photo}}"></a></td>
                             <td><a href="{{path('details',{id:item.produit.id})}}">{{item.produit.nom}}</a></td>
                             <td>
                                 <form action="{{ path('panier_update',{'id':item.produit.id}) }}" method="post">
@@ -78,7 +78,7 @@ input{
                 </tfoot>
             </table>
         {% else %}
-            <p>Surprise, c'est vide !</p>
+            <p> C'est vide!</p>
         {% endif %}
 	</div>
 </section>

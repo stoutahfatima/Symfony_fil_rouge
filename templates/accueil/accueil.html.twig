@@ -3,6 +3,7 @@
 
 {% block body %}
 
+
 {# CSS #}
 <style>
 .overlay-image .image {
@@ -18,15 +19,10 @@
 <section>
 	<div class="container bg-center">
 		<div class="row p-4">
-			<div class="col-sm-9">
-				<img src="assets/src/pub guitare.png" class="w-100" height="500">
-			</div>
-			<div class="col-sm-3 p-0">
-				<img src="assets/src/banniere droite prix.png" class="w-100" height="500">
-			</div>
-		</div>
-
-
+			<div class="col-sm-14">
+				<img src="assets/src/Images.jpg" class="w-100" height="500">
+			<br>
+			<br>
 		<div class="row mt-2 mb-2">
 			<img src="assets/src/banniere centre 4 pictos.png" class="w-100">
 		</div>
@@ -40,7 +36,7 @@
 			<div class="col-sm-3 p-0 ">
 				<div class="overlay-image">
 					<a href="{{ path('souscategorie',{id:row.id})}}">	 
-						<img class="image_accueil" src="assets/src/{{row.photos}}" alt="{{row.nom}}"height="183px"/>
+						<img class="image_accueil" src="assets/src/{{row.photos}}" alt="{{row.nom}}"height="188px"/>
 					</a>
 				</div>
 			</div>
@@ -73,13 +69,11 @@
 					</a>
 				</div>
 			</div>
-			<div class="col-sm-6">
-				<img class="w-100" src="assets/src/partenaires 4 logos.png" alt="saxo" height="248"/>
+			<div class="col-sm-8">
+				<img class="w-100" src="assets/src/partenaires 4 logos.png" alt="partenaires" height="248"/>
 			</div>
 		</div>
 	</div>
 </section>
-
-
 
     {% endblock %}
