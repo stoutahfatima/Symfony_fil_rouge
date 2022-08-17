@@ -17,18 +17,19 @@ class Produit
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("read:produit")
+     * @Groups({"read:produit"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="text", length=255, nullable=true)
+     * @Groups({"read:produit"})
      */
     private $caracteristiques;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("read:produit")
+     * @Groups({"read:produit"})
      */
     private $nom;
 
@@ -39,20 +40,20 @@ class Produit
 
     /**
      * @ORM\Column(type="integer", nullable=true)
-     *  @Groups("read:produit")
+     *  @Groups({"read:produit"})
      */
     private $stock;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2, nullable=true)
-     *  @Groups("read:produit")
+     *  @Groups({"read:produit"})
      */
     private $prixht;
 
     /**
      * @ORM\ManyToOne(targetEntity=SousCategorie::class, inversedBy="produits")
      * @ORM\JoinColumn(nullable=false)
-     *  @Groups("read:produit")
+     *  @Groups({"read:produit"})
      */
     private $souscategorie;
 
@@ -151,7 +152,7 @@ class Produit
         return $this;
     }
 
- 
+
 
     public function getSouscategorie(): ?SousCategorie
     {

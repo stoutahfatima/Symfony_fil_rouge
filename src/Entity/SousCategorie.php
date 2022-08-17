@@ -17,17 +17,19 @@ class SousCategorie
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"showcat"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     *  @Groups("read:produit")
+     *  @Groups({"read:produit", "showcat"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"showcat"})
      */
     private $description;
 

@@ -14,12 +14,10 @@
 </style>
 
 
-
 {# CORPS DE LA PAGE #}
 <section>
-	<div class="container bg-center">
 		<div class="row p-4">
-			<div class="col-sm-14">
+			<div class="col-sm-12">
 				<img src="assets/src/Images.jpg" class="w-100" height="500">
 			<br>
 			<br>
@@ -28,16 +26,17 @@
 		</div>
 
 		<div class="row p-4">
-			<h2>Nos Catégories</h2>
+			<h2> Nos Catégories!</h2>
 		</div>
 		{# CORDES #}
 		<div class="row p-2">			
 			{% for row in home %}
 			<div class="col-sm-3 p-0 ">
-				<div class="overlay-image">
+				<div class=" overlay-image"> 
 					<a href="{{ path('souscategorie',{id:row.id})}}">	 
-						<img class="image_accueil" src="assets/src/{{row.photos}}" alt="{{row.nom}}"height="188px"/>
+						<img class="img-border-radius" src="assets/src/{{row.photos}}" alt="{{row.nom}}"height="188px"/>
 					</a>
+					
 				</div>
 			</div>
 			{% endfor %}
@@ -64,7 +63,7 @@
 					<a
 						href="#">
 						<div class="hover">
-							<img class="image" src="assets/src/TOP VENTES saxo.png " alt="Top vente piano" height="248"/>
+							<img class="image" src="assets/src/TOP VENTES saxo.png " alt="Top vente saxo" height="248"/>
 						</div>
 					</a>
 				</div>

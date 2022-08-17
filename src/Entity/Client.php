@@ -76,7 +76,7 @@ class Client
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Genre;
+    private $Genre = 'M.';
 
     
     public function __construct()

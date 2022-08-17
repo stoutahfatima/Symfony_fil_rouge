@@ -16,7 +16,7 @@ body{
 }
 
 h2{
-    color:rgb(15, 16, 17);
+    color:rgb(18, 19, 20);
 }
 
 .image_accueil{
@@ -50,7 +50,7 @@ h2{
 
 #navbar2{
     font-size: 1em;
-    background-color: rgb(14, 72, 138);
+    background-color: rgb(37, 207, 128);
 }
 
 /* Couleur utilisée pour les liens de la navbar2 lorsque la souris passe dessus */
@@ -76,15 +76,15 @@ h2{
 
 .breadcrumb {
     background-color: unset  !important;
-    font-size:1.5em
+    font-size:2em
 }
 
 .breadcrumb-item.active,.breadcrumb-item+.breadcrumb-item::before{
-    color:rgb(21, 22, 27);
+    color:rgb(3, 16, 17);
 }
 
 #arianne{
-	color: rgb(70, 11, 235)
+	color: rgb(66, 38, 150)
 	text-decoration  underline!important;
 }
 a:link { 
@@ -100,7 +100,7 @@ color:rgb(16, 23, 46);
 }
 
 .carte{
-	max-width: 60%;
+	max-width: 80%;
 }
 
 .dispo{
@@ -139,6 +139,23 @@ color:rgb(16, 23, 46);
 .photoproduit{
     width:4.5rem
 }
+
+.images {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+  }
+  
+  h2 {
+    width: 50vw;
+    text-align: auto;
+  }
+  
+  .img-border-radius {
+    height: 180px;
+    border-radius: 30%;
+  }
+
 
 @media screen and (max-width: 991px) {
 .logo {
@@ -194,7 +211,7 @@ footer {
    
 footer p { 
     font-size:13px;
-    color:#CCC;
+    color:rgb(255, 250, 250);
     padding-bottom:0px; 
     margin-bottom:8px;
 }

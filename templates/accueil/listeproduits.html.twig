@@ -19,7 +19,7 @@ label{
 </style>
 
 <section>
-	<div class="container bg-center">
+	
 		{# MODIFIER LE FIL D'ARIANNE ENLEVER LE BRUT ET PASSER LES VALEURS CONTROLLEUR #}
 		<div class="row p-3">
 			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -27,12 +27,14 @@ label{
 					<li class="breadcrumb-item ">
 						<a id="arianne" href="{{'/accueil'}}">Accueil</a>
 					</li>
-					{# Récupère le 1er objet de liste sous rubrique, et y récupère le nom de sa rubrique associée #}
+					{# Récupère le 1er objet de liste sous categorie, et y récupère le nom de sa categorie associée #}
 					<li class="breadcrumb-item active" aria-current="page">
+					{% if produit|length > 0 %}
 						<a href="{{ path('souscategorie',{id:produit|first.souscategorie.categorie.id})}}">{{produit|first.souscategorie.categorie.nom}}</a>
 					</li>
 					<li class="breadcrumb-item active" aria-current="page">{{produit|first.souscategorie.nom}}
 					</li>
+					{% endif %}
 				</ol>
 			</nav>
 

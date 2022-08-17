@@ -39,105 +39,93 @@
 
 	<body>
 		{% block header %}
-			<header>
-				<div class="container">
-					<div class="row">
-						<div class="divLogo">
-							<a href="{{'/accueil'}}">
-								<img src="/assets/src/logovillage.png" class="logo" alt="village green" title="village green">
-							</a>
-						</div>
-						<!-- NAVBAR 1 -->
+	<header>
+	
+	<div class="row">
+	<div class="divLogo">
+	<a href="{{ path('accueil') }}">
+	<img src="/assets/src/logovillage.png" class="logo" alt="village green" title="village green">
+	</a>
+	</div>
+	<!-- NAVBAR 1 -->
 
-						<div class="navbar navbar-expand-lg navbar-light col-12" id="navbar1">
-							<div class="navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto">
-									<li class="nav-item mr-2">
-										<a class=" accueil nav-link active" href="{{'/accueil'}}">Accueil
-										</a>
-									</li>	
+	<div class="navbar navbar-expand-lg navbar-light col-12" id="navbar1">
+	<div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+	<li class="nav-item mr-2">
+	<a class=" accueil nav-link active" href="{{ path('accueil') }}">Accueil
+	</a>
+	</li>	
 									
-									{% if app.user %}
-										<li class="nav-item dropdown text-center mr-4 ml-4 row">
-											<a class="nav-link dropdown-toggle mr-2 prenom row col-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<span class="row col-4 prenom">Salut {{app.user.client.prenom}}</span>
-											Mon compte
-											</a>
-											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-												<a class="dropdown-item" href="{{path('recap_profil')}}">Profil</a>
-												<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
-											</div>
-									{% else %}
-                                  <li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												Espace client
-											</a>
-											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-												<a class="dropdown-item" href="{{'/login'}}">Se connecter</a>
-												<a class="dropdown-item" href="{{'/register'}}">S'inscrire</a>
-											</div>
-										</li>	
+		{% if app.user %}
+	<li class="nav-item dropdown text-center mr-4 ml-4 row">
+	<a class="nav-link dropdown-toggle mr-2 prenom row col-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	<span class="row col-4 prenom">Salut {{app.user.client.prenom}}</span>
+	Mon compte
+	</a>
+	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	<a class="dropdown-item" href="{{path('recap_profil')}}">Profil</a>
+	<a class="dropdown-item" href="{{path('app_logout')}}">Déconnexion</a>
+	</div>
+		{% else %}
+    <li class="nav-item dropdown">
+   <a class="nav-link dropdown-toggle mr-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Espace client
+	</a>
+   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	<a class="dropdown-item" href="{{'/login'}}">Se connecter</a>
+	<a class="dropdown-item" href="{{'/register'}}">S'inscrire</a>
+	</div>
+	</li>
+	
+			{% endif %}	
+			<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>	
+<li class="nav-item mr-2 paniernav ">
+	    <a class=" nav-link" href="{{path('panier')}}"><i class="fal fa-shopping-cart"></i>
+			{% if app.session.get('panier')%}
+			{% set TotalPanier =0 %}
+			 {% for key,cpte in app.session.get('panier') %}
+			 {% if key matches '/^\\d+$/' %}
+				{% set TotalPanier =  TotalPanier + app.session.get('panier')[key] %}
+			{% endif %}
+			{% endfor %}
+	<span class=" position-absolute top-1 translate-middle badge rounded-pill bg-danger text-center">{{ TotalPanier }}</span>
+			{% endif %}
+	</a>
+	</li>
 									
-									<form class="form-inline ml-auto">
-                                         <div class="md-form my-0">
-                                        <input class="form-control" id="search" name="search" type="text" placeholder=" " aria-label="Search">
-                                         </div>
-                                        <button class="btn btn-outline-success btn-md my-0 ml-sm-2" type="submit">Rechercher</button>
-                                    </form>
-									<form class="form-inline my-2 my-lg-0">
-                                  <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search">
-                                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
-                                    </form>
-									<!--<form class="form-inline my-2 my-lg-0">
-										<input class="rechercheinput form-control col-12 " type="search" placeholder="" aria-label="Search">
-										<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-									</form>	-->
-									{% endif %}	
-									
-								</ul>
-
-								
-								 <li class="nav-item mr-2 paniernav ">
-										<a class=" nav-link" href="{{path('panier')}}"><i class="fal fa-shopping-cart"></i>
-											{% if app.session.get('panier')%}
-												{% set TotalPanier =0 %}
-												{% for key,cpte in app.session.get('panier') %}
-													{% if key matches '/^\\d+$/' %}
-														{% set TotalPanier =  TotalPanier + app.session.get('panier')[key] %}
-													{% endif %}
-												{% endfor %}
-													<span class=" position-absolute top-1 translate-middle badge rounded-pill bg-danger text-center">{{ TotalPanier }}</span>
-											{% endif %}
-										</a>
-									</li>
-							</div>
-						</div>
+	</ul>
+	</div>
+	</div>
 						<!-- NAVBAR 2 -->
-						<nav class="navbar navbar-expand-lg navbar-light col-12" id="navbar2">
-							<a class="navbar-brand" href="#"></a>
-							<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+	<nav class="navbar navbar-expand-lg navbar-light col-12" id="navbar2">
+	<a class="navbar-brand" href="#"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+	</button>
 
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto">
-									{% for row in home %}
-										<li class="nav-item ">
-											<a class="nav-link souscategorie " href="{{ path('souscategorie',{id:row.id})}}">{{row.nom}}</a>
-										</li>
-									{% endfor %}
-								</ul>
-							</div>
-						</nav>
-					     </div>
-				           </div>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav ml-auto">
+			{% for row in home %}
+	<li class="nav-item ">
+	<a class="nav-link souscategorie " href="{{ path('souscategorie',{id:row.id})}}">{{row.nom}}</a>
+	</li>
+			{% endfor %}
+	</ul>
+	</div>
+	</nav>
+	</div>
+	</div>
 			</header>
 		{% endblock header %}
 		{% block body %}{% endblock body %}
 		{% block footer %}
 			
 <!--footer -->
-<div class="container">
+
    <div class="row pt-">
 <footer class="footer">
     <div class="container bottom_border">
@@ -155,30 +143,31 @@
       <p><i class="fa fa fa-envelope"></i> info@villagegreen.com  </p>
 
       </div>
-
-<div class=" col-sm-6 col-md  col-12 col">
+	  
+<div class=" col-sm-6 col-md col-sm-8 col-12 col">
 <h5 class="headin5_amrc col_white_amrc pt2">Village Green Stores!</h5>
+
 <!--headin5_amrc-->
 <ul class="footer_ul_amrc">
-<li><a href="http://webenlance.com">Guitares-Amplificateurs-Effet:182 avenue jean jaurés 75019 Paris</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Guitares-Amplificateurs-Effet:182 avenue jean jaurés 75019 Paris</a></li>
 <br>
-<li><a href="http://webenlance.com">Batteries:7 av.du Nouveau Conservatoire 75019 Paris</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Batteries:7 av.du Nouveau Conservatoire 75019 Paris</a></li>
 <br>
-<li><a href="http://webenlance.com">Clavier Eclairage:184 Av Jean Jaurés 80990 Amiens</a></li>
-<br>
+<li><a href="https://www.thomann.de/fr/index.html">Clavier Eclairage:184 Av Jean Jaurés 80990 Amiens</a></li>
+
 </ul>
 <!--footer_ul_amrc ends here-->
 </div>
 
 
-<div class=" col-sm-6 col-md  col-12 col">
+<div class=" col-sm-6 col-md col-sm-8 col-12 col">
 <h5 class="headin5_amrc col_white_amrc pt2">Suivez-Nous</h5>
 <!--headin5_amrc ends here-->
 
 <ul class="footer_ul2_amrc">
-<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
-<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
-<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Village Green<a href="#">https://www.village green.com/</a></p></li>
+<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Village Green<a href="#">https://www.village green.com/</a></p></li>
+<li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Village Green<a href="#">https://www.village green.com/</a></p></li>
 </ul>
 <!--footer_ul2_amrc ends here-->
 </div>
@@ -188,31 +177,25 @@
 
 <div class="container">
 <ul class="foote_bottom_ul_amrc">
-<li><a href="http://webenlance.com">Guitares</a></li>
-<li><a href="http://webenlance.com">Batteries</a></li>
-<li><a href="http://webenlance.com">Studios</a></li>
-<li><a href="http://webenlance.com">Cables</a></li>
-<li><a href="http://webenlance.com">Vents</a></li>
-<li><a href="http://webenlance.com">Cases</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Guitares</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Batteries</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Studios</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Cables</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Vents</a></li>
+<li><a href="https://www.thomann.de/fr/index.html">Cases</a></li>
 </ul>
 <!--foote_bottom_ul_amrc ends here-->
-<p class="text-center">Copyright @2022 | Designed With by <a href="#">Your Company Name</a></p>
+<p class="text-center">Copyright @2022 | Designed With by <a href="#">Village Green</a></p>
 
 <ul class="social_footer_ul">
-<li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
-<li><a href="http://webenlance.com"><i class="fab fa-twitter"></i></a></li>
-<li><a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a></li>
-<li><a href="http://webenlance.com"><i class="fab fa-instagram"></i></a></li>
+<li><a href="https://www.thomann.de/fr/index.html"><i class="fab fa-facebook-f"></i></a></li>
+<li><a href="https://www.thomann.de/fr/index.html"><i class="fab fa-twitter"></i></a></li>
+<li><a href="https://www.thomann.de/fr/index.html"><i class="fab fa-linkedin"></i></a></li>
+<li><a href="https://www.thomann.de/fr/index.html"><i class="fab fa-instagram"></i></a></li>
 </ul>
 <!--social_footer_ul ends here-->
 </div>
-
 </footer>
-
-
-
-
-
 		{% endblock footer %}
 	</body>
 </html>

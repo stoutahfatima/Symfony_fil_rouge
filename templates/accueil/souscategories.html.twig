@@ -13,8 +13,6 @@
 
 
 <section>
-	<div class="container bg-center">
-	
 		<div class="row p-3">
 			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 				<ol class="breadcrumb" id="breadcrumb">
@@ -32,7 +30,7 @@
 				<div class="overlay-image">
 					<a href="{{ path('listeproduits',{id:row.id})}}">
 						<div class="hover">
-							<img class="image mx-auto" src="/assets/src/{{row.photos}}" alt="{{row.nom}}" />
+							<img class="image mx-auto" src="/assets/src/{{row.photos}}" alt="Photos_{{row.nom}}" />
                         </div>
                         <div class="liens">
                             <span>{{row.nom}}</span>

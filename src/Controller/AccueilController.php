@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Produit;
 use App\Repository\ClientRepository;
 use App\Repository\ProduitRepository;
 use App\Repository\CategorieRepository;
@@ -14,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AccueilController extends AbstractController
 {
     /**
-     * @Route("/accueil", name="accueil")
+     * @Route("/", name="accueil")
      */
     public function Categories(CategorieRepository $cat, SousCategorieRepository $repo, ClientRepository $cli): Response
     {
@@ -47,7 +48,6 @@ class AccueilController extends AbstractController
     public function Listeproduits(ProduitRepository $repo, $id, CategorieRepository $catrepo): Response
     {
         $produit = $repo->findBy(['souscategorie'=>$id]);
-        
 
         return $this->render('accueil/listeproduits.html.twig', [
             'produit' => $produit,
