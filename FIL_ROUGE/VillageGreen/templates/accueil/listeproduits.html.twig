@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{# CSS #}
+<style>
+#spanprix {
+font-size: 2.5em;
+}
+
+#submit.add-to-cart-announce{
+font-size: 0.5em !important;
+}
+
+label{
+	margin-bottom:0;
+}
+
+</style>
+
+<section>
+	
+		{# MODIFIER LE FIL D'ARIANNE ENLEVER LE BRUT ET PASSER LES VALEURS CONTROLLEUR #}
+		<div class="row p-3">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb" id="breadcrumb">
+					<li class="breadcrumb-item ">
+						<a id="arianne" href="{{'/accueil'}}">Accueil</a>
+					</li>
+					{# Récupère le 1er objet de liste sous categorie, et y récupère le nom de sa categorie associée #}
+					<li class="breadcrumb-item active" aria-current="page">
+					{% if produit|length > 0 %}
+						<a href="{{ path('souscategorie',{id:produit|first.souscategorie.categorie.id})}}">{{produit|first.souscategorie.categorie.nom}}</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">{{produit|first.souscategorie.nom}}
+					</li>
+					{% endif %}
+				</ol>
+			</nav>
+
+			<div class="row p-5" style="justify-content:center">
+				{% for row in produit %}
+				{# CARD #}
+					<div class="carte card mb-3">
+						<div class="row g-0">
+							<div class="col-md-4">
+								<a href="{{ path('details',{id:row.id})}}">
+									<img src="/assets/src/{{row.photo}}" class="img-fluid rounded-start" alt="...">
+								</a>
+							</div>
+							<div class="col-md-8">
+								<div class="row card-body">
+									<a href="{{ path('details',{id:row.id})}}">
+										<h5 class="card-title">{{row.nom}}</h5>
+									</a>
+									<a href="{{ path('details',{id:row.id})}}">
+										<p class="card-text">{{row.caracteristiques}}</p>
+									</a>
+									<span id="spanprix">{{row.prixht}}€</span>
+									{# STOCK #}
+									<div class="stock">
+										<p class="card-text">
+											{% if row.stock > 0 %}
+												<small class="dispo" style="color:rgb(21,141,60)">En stock</small>
+											{% else %}
+												<small class="dispo" style="color:rgb(228,31,31)">Indisponible</small>
+											{% endif %}
+										</p>
+									</div>
+								</div>
+							</div>
+							{# FIN CARD #}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+
+
+
+{% endblock %}

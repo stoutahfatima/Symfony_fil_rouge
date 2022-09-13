@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{# CSS #}
+<style>
+.overlay-image .image {
+    display: block;
+    height:45%;
+    width:45%
+}
+</style>
+
+
+<section>
+		<div class="row p-3">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb" id="breadcrumb">
+					<li class="breadcrumb-item ">
+						<a id="arianne" href="{{'/accueil'}}">Accueil</a>
+					</li>
+					{# Récupère le 1er objet de liste sous rubrique, et y récupère le nom de sa rubrique associée #}
+					<li class="breadcrumb-item active" aria-current="page">{{listesouscategories|first.categorie.nom}}</li>
+				</ol>
+			</nav>
+		</div>
+        <div class="row pb-5" style="justify-content:center">
+		{% for row in listesouscategories %}
+            <div class="col-sm-4 p-0 mt-3 mb-3">
+				<div class="overlay-image">
+					<a href="{{ path('listeproduits',{id:row.id})}}">
+						<div class="hover">
+							<img class="image mx-auto" src="/assets/src/{{row.photos}}" alt="Photos_{{row.nom}}" />
+                        </div>
+                        <div class="liens">
+                            <span>{{row.nom}}</span>
+                        </div>
+					</a>
+				</div>
+            </div>
+		{% endfor %}
+            
+			
+        </div>    
+	</div>
+</section>
+
+
+{% endblock %}

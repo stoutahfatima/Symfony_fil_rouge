@@ -1,0 +1,76 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Hello AdminAccueilController!{% endblock %}
+
+{% block body %}
+{# CSS #}
+<style>
+.container{
+
+    height: 550%;
+    width: 200%;
+}
+
+</style>
+
+
+
+{# CORPS DE LA PAGE #}
+<section>
+	
+        <div class="row p-3" style="justify-content:center">
+            <h1 class="mb-4">Liste des commandes</h1>
+            <table class="table">
+                <thead class="">
+                    <tr>
+                        <th>N°</th>
+                        <th>Commande passée le</th>
+                        <th>Client</th>
+                        <th>Adresse</th>
+                        <th>Ville</th>
+                        <th>CP</th>
+                        <th>Quantité</th>
+                        <th>HT</th>
+                        <th>TTC</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for commande in commandes %}
+                        <tr>
+                            <td>{{ commande.id }}</td>
+                            <td>{{ commande.date|date('d-m-Y') }}</td>
+                            <td>{{ (commande.client.nom) }}</td>
+                            <td>{{ commande.adresselivraison}}</td>
+                            <td>{{ commande.villelivraison }}</td>
+                            <td>{{ commande.cplivraison }}</td>
+                            {% set total = 0 %}
+                            {% set quantite = 0 %}
+                            {% set tva = 0 %}
+                            {% for row in commande.contenirs %}
+                            {%  set tva = (total + row.prixvente * row.qtitecommande)* 0.05 %}
+                            {% set total = (total + row.prixvente * row.qtitecommande) %}
+                            {%  set quantite = quantite + row.qtitecommande %}
+                            {% endfor %}
+                            <td>{{ quantite }}</td>
+                            <td>{{ total|number_format(2, '.', ' ') }} €</td>
+                            <td class="text-danger">{{ (total + tva)|number_format(2, '.', ' ') }} €</td>
+                            <td>
+                                <p>
+                                    <a class="" href="{{ path('facturePdf',{commande:commande.id}) }}" download  title="Télécharger la facture">
+                                        <i class="fa fa-file-pdf-o fa-2x text-danger bg-light"></i>
+                                    </a>
+                                </p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}
