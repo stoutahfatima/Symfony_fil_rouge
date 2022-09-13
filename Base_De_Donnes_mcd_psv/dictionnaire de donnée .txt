@@ -1,0 +1,74 @@
+                           
+						    DICTIONNAIRE DE DONNEES FIL ROUGE				
+	 NOM                                 CODE                                               TYPE ET LONGEURS
+	 	                             	                                           
+CLIENT	Id client	                    cli_id	                                              AUTO_INCREMENT
+	Nom du client	                    cli_nom                                         	  VARCHAR(255)
+	Prénom du client	                cli_prenom                                            VARCHAR(255)
+	Raison social du client	            cli_raison                                       	  VARCHAR(50)
+	Adresse client	                    cli_adresse	                                          VARCHAR(255)
+	Ville client	                    cli_ville	                                          VARCHAR(50)
+	Code postal du client	            cli_cp	                                              VARCHAR(5)
+	Telephone du client	                cli_tel	                                              VARCHAR(10)
+	Mail du client                      cli_mail                                              VARCHAR(50)
+    	                   	                                          
+PRODUIT	Id produit 	                    pro_id	                                              AUTO_INCREMENT
+	Description du produit	            pro_desc	                                          VARCHAR(255)
+	Nom du produit	                    pro_nom                                               VARCHAR(255)
+	photo du produit	                pro_photo	                                          VARCHAR(255)
+	Prix hors taxe	                    pro_prixht                                            DECIMAL(10,2)
+	Stock	                            pro_stock	                                          INT(11)
+	Id fournisseur	                    four_id	                                              INT(11)
+
+COMMANDE	Numéro de commande	        commande_num	                                      AUTO_INCREMENT
+	Date de commande	                commande_date	                                      DATE
+	Reduction sur commande	            commande_reduc                                        INT
+	Prix total de la commande	        commande_prix_tot	                                  INT
+	Date de règlement 	                commande_date_reglem	                              DATE
+	Date de facturation	                commande_date_fact                                    DATE
+	Adresse de livraison 	            commande_livraison_adresse	                          VARCHAR(255)
+	Ville de livraison	                commande_livraison_ville	                          VARCHAR(50)
+	CP de livraison	                    commande_livraison_cp	                              VARCHAR(5)
+	Adresse de facturation 	            commande_facturation_adresse	                      VARCHAR(255)
+	Ville de facturation	            commande_facturation_ville                        	  VARCHAR(50)
+	CP de facturation	                commande_facturation_cp	                              VARCHAR(5)
+	état de la commande	                commande_etat	                                      VARCHAR(50)
+
+FOURNISSEUR	Id fournisseur	            four_id	                                              AUTO_INCREMENT
+	Nom du fournisseur	                four_nom	                                          VARCHAR(255)
+	Prénom du fournisseur	            four_prenom	                                          VARCHAR(255)
+	Raison social du fournisseur	    four_raison	                                          VARCHAR(255)
+	Adresse du fournisseur	            four_adresse	                                      VARCHAR
+	Ville du fournisseur	            four_ville	                                          VARCHAR(10)
+	CP du fournisseur	                four_cp	                                              VARCHAR
+	Telephone du fournisseur	        four_tel	                                          CHAR(10)
+	Nom du contact fournisseur	        four_contact_nom	                                  VARCHAR(255)
+	Prénom du contact fournisseur	    four_contact_prenom	                                  VARCHAR(255)
+
+LIVRAISON	ID de la commande	        liv_id	                                              INT
+    Numéro de bon	                    liv_num_bon	                                                  VARCHAR(255)
+	Date livraison	                    liv_date	                                          DATE
+	Etat livraison	                    liv_etat	                                          VARCHAR(255)
+	
+CATEGORIE	Id categorie	            categorie_id	                                      AUTO_INCREMENT
+	Nom categorie	                    categorie_nom	                                      VARCHAR(255)
+	Description categorie	            categorie_desc	                                      VARCHAR(255)
+    Photos categorie                    categorie_photo                                      VARCHAR(255)
+
+SOUS-CATEGORIE	Id de sous categorie	souscat_id	                                          VARCHAR(50)
+	Nom de sous categorie	            souscat_nom	                                          VARCHAR(50)
+	Description de sous categorie	    souscat_desc	                                      VARCHAR(255)
+    Photos de sous categorie            souscat_photo                                         VARCHAR(255)
+
+COMMERCIAL	Id du commercial	        commercial_id	                                      VARCHAR(255)
+	Nom du commercial	                commercial_nom	                                      VARCHAR(255)
+	Prénom du commercial	            commercial_prenom	                                  VARCHAR(255)
+	Téléphone du commercial	            commercial_tel	                                      INT(10)
+
+APPROVISIONNER  Prix d’achat au fournisseur  appro_prix_achat	                              VARCHAR(255)
+	Date de commande au fournisseur	       appro_date_commande                             	  DATE
+	Date de livraison du fournisseur	   appro_date_liv                                  	  DATE
+	Quantite d’approvisionnement	       appro_qtite	                                      INT
+
+CONTENIR Quantite de produit commandé	contenir_qtite_commande                     	      INT
+	Prix de vente	                    contenir_prix_vent                                    DECIMAL(10.2)
